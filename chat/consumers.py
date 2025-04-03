@@ -1,7 +1,7 @@
 import json
 
 from asgiref.sync import sync_to_async
-from channels.generic.websocket import AsyncWebsocketConsumer
+from channels.generic.websocket import AsyncWebsocketConsumer #ignore
 
 from .models import ConversationMessage
 
@@ -20,7 +20,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
 
         await self.accept()
 
-    async def disconnect(self, code):
+    async def disconnect(self):
         # Leave room
 
         await self.channel_layer.group_discard(
